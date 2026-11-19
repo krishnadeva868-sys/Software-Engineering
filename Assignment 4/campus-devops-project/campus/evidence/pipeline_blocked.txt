@@ -1,0 +1,33 @@
+== stage 1 checkout: commit d2f8d8c, version 1.d2f8d8c
+== stage 2 dependencies: flask available
+== stage 3 security: secret scan (tracked source)
+GATE [secret-scan] PASS
+== stage 4 tests (unit + integration + regression + security + migration)
+Traceback (most recent call last):
+  File "/home/claude/campus/tests/test_unit.py", line 10, in test_u1_overlap_partial
+    self.assertTrue(rules.overlaps(D(9, 30), D(10, 30), D(10), D(11)))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_u5_sensor_threshold_boundary (tests.test_unit.UnitTests.test_u5_sensor_threshold_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/campus/tests/test_unit.py", line 25, in test_u5_sensor_threshold_boundary
+    self.assertTrue(rules.sensor_alert(75.0))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_m5_lab_sensor_threshold_60_after_migration (tests.test_v2_migration.V2Tests.test_m5_lab_sensor_threshold_60_after_migration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/campus/tests/test_v2_migration.py", line 43, in test_m5_lab_sensor_threshold_60_after_migration
+    self.assertTrue(r.get_json()["alert"])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.356s
+
+FAILED (failures=5)
+GATE [tests] FAIL
+PIPELINE BLOCKED at 'tests' - no build, no deploy (version 1.d2f8d8c)
+rc=1

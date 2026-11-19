@@ -1,0 +1,22 @@
+== stage 1 checkout: commit 9126949, version 1.9126949
+== stage 2 dependencies: flask available
+== stage 3 security: secret scan (tracked source)
+GATE [secret-scan] PASS
+== stage 4 tests (unit + integration + regression + security + migration)
+.....................................
+----------------------------------------------------------------------
+Ran 37 tests in 0.389s
+
+OK
+GATE [tests] PASS
+== stage 5 build: artifact campus-1.9126949.tar.gz
+0ca330ef6a79bbcea2f0cb9a
+docker build SKIPPED (docker not installed in this sandbox)
+== stage 6 deploy to isolated environment /tmp/campus_env
+== stage 7 smoke checks
+SMOKE health             expected=200 got=200 PASS
+SMOKE booking created    expected=201 got=201 PASS
+SMOKE overlap rejected   expected=409 got=409 PASS
+SMOKE no token rejected  expected=401 got=401 PASS
+DEPLOYED 1.9126949 (smoke PASS)
+Terminated

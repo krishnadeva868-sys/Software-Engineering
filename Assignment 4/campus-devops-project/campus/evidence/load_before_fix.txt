@@ -1,0 +1,9 @@
+requests=200 concurrency=10 wall=0.59s throughput=339 req/s
+status_codes={201: 107, 409: 93} rows_in_db=107 double_booked_slots=7
+latency_ms p50=6.6 p95=176.1 max=333.5
+requests=200 concurrency=10 wall=0.53s throughput=379 req/s
+status_codes={201: 109, 409: 91} rows_in_db=109 double_booked_slots=9
+latency_ms p50=7.7 p95=118.8 max=212.7
+requests=200 concurrency=10 wall=0.57s throughput=353 req/s
+status_codes={201: 113, 409: 87} rows_in_db=113 double_booked_slots=13
+latency_ms p50=6.3 p95=134.7 max=557.2

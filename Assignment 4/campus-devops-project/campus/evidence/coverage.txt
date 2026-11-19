@@ -1,0 +1,6 @@
+tests run under trace: 37, failures: 0
+app/rules.py    executable= 40 executed= 39  97.5%  missed lines: [0]
+app/main.py     executable=188 executed=170  90.4%  missed lines: [0, 60, 74, 77, 78, 102, 109, 111, 122, 134, 135, 145, 148, 158]
+app/migrate.py  executable= 31 executed= 27  87.1%  missed lines: [0, 34, 35, 39]
+app/db.py       executable= 17 executed= 16  94.1%  missed lines: [0]
+TOTAL           executable=276 executed=252  91.3%

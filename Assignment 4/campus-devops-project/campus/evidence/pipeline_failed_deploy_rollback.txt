@@ -1,0 +1,33 @@
+== stage 1 checkout: commit a33d8ba, version 1.a33d8ba
+== stage 2 dependencies: flask available
+== stage 3 security: secret scan (tracked source)
+GATE [secret-scan] PASS
+== stage 4 tests (unit + integration + regression + security + migration)
+.....................................
+----------------------------------------------------------------------
+Ran 37 tests in 0.423s
+
+OK
+GATE [tests] PASS
+== stage 5 build: artifact campus-1.a33d8ba.tar.gz
+1d05481222a50c8f52ebd386
+docker build SKIPPED (docker not installed in this sandbox)
+== stage 6 deploy to isolated environment /tmp/campus_env
+== stage 7 smoke checks
+SMOKE health             expected=200 got=0 FAIL
+SMOKE booking created    expected=201 got=0 FAIL
+SMOKE overlap rejected   expected=409 got=0 FAIL
+SMOKE no token rejected  expected=401 got=0 FAIL
+SMOKE version served     expected=1.a33d8ba got=None FAIL
+SMOKE FAILED - rolling back
+  File "/tmp/campus_env/releases/1.a33d8ba/app/migrate.py", line 22, in migrate_to_v2
+    raise RuntimeError("simulated migration failure")
+RuntimeError: simulated migration failure
+database restored from backup
+SMOKE health             expected=200 got=200 PASS
+SMOKE booking created    expected=201 got=201 PASS
+SMOKE overlap rejected   expected=409 got=409 PASS
+SMOKE no token rejected  expected=401 got=401 PASS
+SMOKE version served     expected=1.fe7c2cd got=1.fe7c2cd PASS
+ROLLBACK OK: previous release 1.fe7c2cd serving again
+rc=1

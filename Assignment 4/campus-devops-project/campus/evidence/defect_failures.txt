@@ -1,0 +1,12 @@
+FAIL: test_i2_overlap_rejected_with_409 (tests.test_integration.IntegrationTests.test_i2_overlap_rejected_with_409)
+AssertionError: 201 != 409
+FAIL: test_r3_sensor_value_at_threshold_alerts (tests.test_regression.RegressionTests.test_r3_sensor_value_at_threshold_alerts)
+AssertionError: False is not true
+FAIL: test_u1_overlap_partial (tests.test_unit.UnitTests.test_u1_overlap_partial)
+AssertionError: False is not true
+FAIL: test_u5_sensor_threshold_boundary (tests.test_unit.UnitTests.test_u5_sensor_threshold_boundary)
+AssertionError: False is not true
+FAIL: test_m5_lab_sensor_threshold_60_after_migration (tests.test_v2_migration.V2Tests.test_m5_lab_sensor_threshold_60_after_migration)
+AssertionError: False is not true
+Ran 37 tests in 0.384s
+FAILED (failures=5)

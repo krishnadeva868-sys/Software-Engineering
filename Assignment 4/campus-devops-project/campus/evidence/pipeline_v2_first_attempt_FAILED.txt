@@ -1,0 +1,29 @@
+== stage 1 checkout: commit 3359286, version 1.3359286
+== stage 2 dependencies: flask available
+== stage 3 security: secret scan (tracked source)
+GATE [secret-scan] PASS
+== stage 4 tests (unit + integration + regression + security + migration)
+.....................................
+----------------------------------------------------------------------
+Ran 37 tests in 0.388s
+
+OK
+GATE [tests] PASS
+== stage 5 build: artifact campus-1.3359286.tar.gz
+29eb69445d8377687c7c171d
+docker build SKIPPED (docker not installed in this sandbox)
+== stage 6 deploy to isolated environment /tmp/campus_env
+== stage 7 smoke checks
+SMOKE health             expected=200 got=200 PASS
+SMOKE booking created    expected=201 got=409 FAIL
+SMOKE overlap rejected   expected=409 got=409 PASS
+SMOKE no token rejected  expected=401 got=401 PASS
+SMOKE FAILED - rolling back
+Address already in use
+Port 5100 is in use by another program. Either identify and stop that program, or start the server with a different port.
+database restored from backup
+SMOKE health             expected=200 got=200 PASS
+SMOKE booking created    expected=201 got=409 FAIL
+SMOKE overlap rejected   expected=409 got=409 PASS
+SMOKE no token rejected  expected=401 got=401 PASS
+rc=1
